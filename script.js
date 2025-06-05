@@ -31,7 +31,7 @@ if (installButton) {
 }
 
 // ✅ Zooming.js 초기화는 이제 각 가이드 페이지의 스크립트에 포함되므로,
-//    이곳 script.js에서는 주석 처리하거나 제거할 수 있습니다.
+//    이곳 script.js에서는 주석 처리하거나 제거할 수 있습니다.
 // document.addEventListener('DOMContentLoaded', () => {
-//     new Zooming().listen('[data-action="zoom"]');
+//     new Zooming().listen('[data-action="zoom"]');
 // });

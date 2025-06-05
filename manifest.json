@@ -2,18 +2,18 @@
     "name": "나의 재난 매뉴얼",
     "short_name": "재난매뉴얼",
     "description": "재난 발생 시 행동 요령, 대피소 정보 등 필수 매뉴얼",
-    "start_url": "/",
+    "start_url": "./",  // ✅ GitHub Pages 프로젝트 페이지 URL에 맞게 상대 경로로 수정
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#e64a19",
     "icons": [
         {
-            "src": "/icons/icon-192.png",
+            "src": "./icons/icon-192.png", // ✅ 상대 경로로 수정
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/icons/icon-512.png",
+            "src": "./icons/icon-512.png", // ✅ 상대 경로로 수정
             "sizes": "512x512",
             "type": "image/png"
         }

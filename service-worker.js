@@ -1,51 +1,49 @@
-const CACHE_NAME = 'Safety-Manual-Team-v39'; // ✅ 캐시 버전을 이전보다 더 높은 새로운 값으로 변경! (예: v36 -> v39)
+const CACHE_NAME = 'Safety-Manual-Team-v43'; // ✅ 캐시 버전을 이전보다 더 높은 새로운 값으로 변경 (v39 -> v43)
 
 // 캐시할 모든 URL 목록 (경로 확인 필수)
 const urlsToCache = [
-    '/', // 앱의 루트 경로 (index.html)
-    '/index.html', // 메인 페이지
-    '/style.css',  // 기본 CSS 파일
-    '/script.js',  // 기본 JavaScript 파일
-    '/manifest.json', // PWA Manifest 파일
-    '/favicon.ico', // 파비콘 추가 (있어야 404 오류 발생 안 함)
-    '/offline.html', // 오프라인 시 보여줄 페이지 (필요하다면 추가, 파일 존재 확인 필수)
-    '/icons/icon-192.png', // PWA 아이콘 (모든 아이콘 추가)
-    '/icons/icon-512.png', // PWA 아이콘 (모든 아이콘 추가)
+    './', // 앱의 루트 경로 (index.html) - ✅ 상대 경로로 수정
+    './index.html', // 메인 페이지 - ✅ 상대 경로로 수정
+    './style.css',  // 기본 CSS 파일 - ✅ 상대 경로로 수정
+    './script.js',  // 기본 JavaScript 파일 - ✅ 상대 경로로 수정
+    './manifest.json', // PWA Manifest 파일 - ✅ 상대 경로로 수정
+    './favicon.ico', // 파비콘 추가 (있어야 404 오류 발생 안 함) - ✅ 상대 경로로 수정
+    './offline.html', // 오프라인 시 보여줄 페이지 (필요하다면 추가, 파일 존재 확인 필수) - ✅ 상대 경로로 수정
+    './icons/icon-192.png', // PWA 아이콘 (모든 아이콘 추가) - ✅ 상대 경로로 수정
+    './icons/icon-512.png', // PWA 아이콘 (모든 아이콘 추가) - ✅ 상대 경로로 수정
     
     // 라이브러리 파일
-    '/lib/swiper-bundle.min.css', // Swiper CSS
-    '/lib/swiper-bundle.min.js',  // Swiper JS
+    './lib/swiper-bundle.min.css', // Swiper CSS - ✅ 상대 경로로 수정
+    './lib/swiper-bundle.min.js',  // Swiper JS - ✅ 상대 경로로 수정
 
-    // ✅ Zooming.js 라이브러리 CDN URL 추가 (오프라인 캐싱을 위해)
+    // Zooming.js 라이브러리 CDN URL (오프라인 캐싱을 위해) - CDN은 절대 경로 유지
     'https://cdn.jsdelivr.net/npm/zooming@2.1.1/build/zooming.min.js',
     
-    // ✅ Google Fonts (Noto Sans KR) 캐싱 - 사용 시 추가
+    // Google Fonts (Noto Sans KR) 캐싱 - 사용 시 추가 - CDN은 절대 경로 유지
     'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap',
-    // 실제 사용되는 Noto Sans KR 폰트 파일의 URL을 개발자 도구 Network 탭에서 확인 후 정확하게 추가
-    // 아래 URL은 예시이므로, 실제 로드되는 URL과 다를 수 있습니다.
     'https://fonts.gstatic.com/s/notosanskr/v37/Cn-lPNbhc_YgIdt_gI_M_qHzD_K_tQ.woff2', 
-    'https://fonts.gstatic.com/s/notosanskr/v37/Cn-lPNbhc_YgIdt_gI_M_qHxD_K_tQ.woff2', // 다른 가중치 폰트 파일 예시
+    'https://fonts.gstatic.com/s/notosanskr/v37/Cn-lPNbhc_YgIdt_gI_M_qHxD_K_tQ.woff2',
 
     // 가이드 페이지 및 이미지 (모든 가이드 페이지와 해당 이미지 경로 정확히 포함)
-    '/guides/earthquake.html',
-    '/guides/typhoon.html',
-    '/guides/fire.html',
-    '/guides/air_pollution.html',
+    './guides/earthquake.html', // ✅ 상대 경로로 수정
+    './guides/typhoon.html',    // ✅ 상대 경로로 수정
+    './guides/fire.html',       // ✅ 상대 경로로 수정
+    './guides/air_pollution.html', // ✅ 상대 경로로 수정
     
     // 지진 이미지
-    '/images/earthquake1.jpg',
-    '/images/earthquake2.jpg',
-    '/images/earthquake3.jpg',
+    './images/earthquake1.jpg', // ✅ 상대 경로로 수정
+    './images/earthquake2.jpg', // ✅ 상대 경로로 수정
+    './images/earthquake3.jpg', // ✅ 상대 경로로 수정
 
-    // 화재 이미지 (고객님이 추가해주신 부분)
-    '/images/fire.jpg', 
-    '/images/fire2.jpg',
-    '/images/fire3.jpg',
-    '/images/fire4.jpg',
+    // 화재 이미지
+    './images/fire.jpg',        // ✅ 상대 경로로 수정
+    './images/fire2.jpg',       // ✅ 상대 경로로 수정
+    './images/fire3.jpg',       // ✅ 상대 경로로 수정
+    './images/fire4.jpg',       // ✅ 상대 경로로 수정
     
     // 태풍, 미세먼지 등 다른 재난 관련 이미지가 있다면 여기에 추가
-    // 예: '/images/typhoon1.jpg',
-    // 예: '/images/air_pollution1.jpg',
+    // 예: './images/typhoon1.jpg',
+    // 예: './images/air_pollution1.jpg',
 ];
 
 // install 이벤트: 서비스 워커 설치 시 캐시 저장
@@ -86,7 +84,7 @@ self.addEventListener('activate', (event) => {
                 })
             );
         }).then(() => {
-            console.log('[ServiceWorker] 활성화 완료. 클라이언트 제어권 주장...'); // ✅ 로그 추가
+            console.log('[ServiceWorker] 활성화 완료. 클라이언트 제어권 주장...'); 
             return self.clients.claim(); // ✅ 이 줄을 추가합니다. 서비스 워커가 즉시 제어권을 갖도록 함
         })
     );
@@ -154,7 +152,7 @@ self.addEventListener('fetch', (event) => {
                         event.request.url.endsWith('/')) { // 디렉토리 루트 요청 (index.html 같은)
                         
                         console.log('[ServiceWorker] 오프라인 상태: 캐시에서 오프라인 페이지 제공');
-                        return caches.match('/offline.html'); // ✅ offline.html 파일 존재 확인 필수
+                        return caches.match('./offline.html'); // ✅ 상대 경로로 수정
                     }
                     // HTML이 아닌 다른 자원(이미지, CSS, JS 등)은 null 반환 또는 다른 폴백 처리
                     console.log('[ServiceWorker] 오프라인 상태: 캐시된 자원 없음, 네트워크 실패:', event.request.url);

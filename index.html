@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 재난 매뉴얼</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#e64a19">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png"> 
+    
+    <link rel="stylesheet" href="/lib/swiper-bundle.min.css" />
+</head>
+<body>
+    <header>
+        <h1>재난 대비 매뉴얼</h1>
+        <button id="installButton" style="display:none;">앱 설치</button> 
+    </header>
+
+    <main>
+        <section id="intro">
+            <h2>환영합니다!</h2>
+            <p>재난 발생 시 여러분과 가족의 안전을 위한 필수 매뉴얼입니다. 필요한 정보를 쉽게 찾아보세요.</p>
+        </section>
+
+        <section id="disaster-types">
+            <h2>재난 유형별 행동 요령</h2>
+            <ul>
+                <li><a href="guides/earthquake.html">지진</a></li>
+                <li><a href="guides/typhoon.html">태풍 및 홍수</a></li>
+                <li><a href="guides/fire.html">화재</a></li>
+                <li><a href="guides/air_pollution.html">미세먼지/황사</a></li>
+            </ul>
+        </section>
+
+        <section id="emergency-contacts">
+            <h2>긴급 연락처</h2>
+            <p>
+                소방서: <a href="tel:119">119</a><br>
+                경찰서: <a href="tel:112">112</a><br>
+                <span class="contact-info">담당자 연락처: <a href="tel:031-8086-7349">031-8086-7349</a></span><br>
+                의왕시 재난안전과: <a href="tel:031-8086-2114">031-8086-2114</a><br> 
+            </p>
+        </section>
+        
+        <section id="emergency-kit-list">
+            <h2>비상 물품 목록</h2>
+            <ul>
+                <li>물 (3일치)</li>
+                <li>비상 식량 (통조림, 에너지바 등)</li>
+                <li>상비약, 구급약</li>
+                <li>손전등 및 여분 배터리</li>
+                <li>휴대용 라디오</li>
+                <li>담요 또는 침낭</li>
+                <li>개인 위생용품 (마스크, 손 소독제 등)</li>
+                <li>현금, 신분증 사본</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 나의 재난 매뉴얼</p>
+    </footer>
+
+    <script src="/lib/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+/* ... 기존 스타일 유지 ... */
+
+/* PWA 설치 버튼 스타일 */
+#installButton {
+    background-color: #007bff; /* 파란색 계열 */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px; /* 헤더 내에서 위치 조정 */
+    transition: background-color 0.3s ease;
+}
+
+#installButton:hover {
+    background-color: #0056b3;
+}
+
+/* 모든 링크의 탭 하이라이트 제거 (모바일에서) */
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 긴급 연락처 텍스트와 링크 색상 일관성 유지 (선택 사항) */
+#emergency-contacts p a {
+    color: inherit; /* 부모 요소의 글자색 상속 */
+    text-decoration: underline; /* 밑줄 추가로 링크임을 표시 */
+}
+
+/* 특정 상황에서 연락처 링크의 색상을 더 강조하고 싶다면 */
+#emergency-contacts p a:hover {
+    color: #e64a19; /* 테마 색상으로 강조 */
+}
+
+/* ... Swiper 관련 스타일 유지 ... */

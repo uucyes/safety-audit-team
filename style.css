@@ -1,36 +1,188 @@
-/* ... 기존 스타일 유지 ... */
+/* 기본 설정: 모든 요소에 box-sizing 적용, 폰트 설정, 여백 초기화 */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 기본 폰트 설정 */
+}
 
-/* PWA 설치 버튼 스타일 */
-#installButton {
-    background-color: #007bff; /* 파란색 계열 */
+body {
+    background-color: #f0f2f5; /* 밝은 회색 배경 */
+    color: #333; /* 기본 텍스트 색상 */
+    line-height: 1.6;
+    display: flex; /* Flexbox 사용하여 Footer를 아래로 내림 */
+    flex-direction: column;
+    min-height: 100vh; /* 최소 화면 높이 */
+}
+
+/* 헤더 스타일 */
+header {
+    background-color: #e64a19; /* 주황색 계열 (테마 색상과 유사) */
     color: white;
-    padding: 10px 20px;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+header h1 a {
+    color: white;
+    text-decoration: none; /* 링크 밑줄 제거 */
+}
+
+/* 메인 콘텐츠 영역 */
+main {
+    flex-grow: 1; /* 남은 공간을 차지하여 푸터를 아래로 밀어냄 */
+    padding: 20px;
+    max-width: 800px; /* 콘텐츠 최대 너비 제한 */
+    margin: 20px auto; /* 중앙 정렬 및 위아래 여백 */
+    background-color: #fff; /* 흰색 배경 */
+    border-radius: 8px; /* 모서리 둥글게 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
+}
+
+/* 각 섹션 스타일 */
+section {
+    padding: 20px 0;
+    border-bottom: 1px solid #eee; /* 섹션 구분선 */
+    margin-bottom: 20px;
+}
+
+section:last-child {
+    border-bottom: none; /* 마지막 섹션은 구분선 없음 */
+    margin-bottom: 0;
+}
+
+section h2 {
+    color: #d84315; /* 주황색 계열 제목 */
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffccbc; /* 제목 아래 강조선 */
+    padding-bottom: 10px;
+}
+
+/* 목록 스타일 (재난 유형, 비상 물품) */
+section ul {
+    list-style: none; /* 기본 목록 마커 제거 */
+    padding-left: 0;
+}
+
+section ul li {
+    background-color: #fdfdfd; /* 리스트 항목 배경색 */
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-left: 5px solid #ff7043; /* 왼쪽 강조선 */
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* 호버 효과 */
+}
+
+section ul li:hover {
+    transform: translateY(-2px); /* 살짝 위로 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+section ul li a {
+    text-decoration: none;
+    color: #3f51b5; /* 파란색 계열 링크 */
+    font-weight: bold;
+    display: block; /* 전체 영역 클릭 가능 */
+    padding: 0; /* 내부 여백 제거 */
+}
+
+section ul li a:hover {
+    color: #002884; /* 호버 시 더 진한 파란색 */
+}
+
+/* 긴급 연락처 스타일 */
+.contact-info {
+    font-weight: bold;
+    color: #e64a19; /* 강조 색상 */
+}
+
+.contact-info a {
+    color: #e64a19; /* 링크 색상도 강조 색상으로 */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* 푸터 스타일 */
+footer {
+    background-color: #333; /* 어두운 배경 */
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 20px; /* 위쪽 여백 */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* 위쪽 그림자 */
+}
+
+/* Swiper 슬라이더 이미지 크기 조절 (earthquake.html 등에서 사용) */
+.swiper-container, .swiper-wrapper, .swiper-slide {
+    width: 100%; /* 부모 너비에 맞춤 */
+    height: auto; /* 높이 자동 조절 */
+}
+
+.swiper-slide img {
+    width: 50%; /* 이미지 너비 100% */
+    height: auto; /* 이미지 높이 자동 조절 */
+    display: block; /* 이미지 아래 여백 제거 */
+    border-radius: 8px; /* 이미지 모서리 둥글게 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 이미지 그림자 */
+}
+
+/* Swiper 네비게이션 버튼 색상 조정 */
+.swiper-button-next, .swiper-button-prev {
+    color: #e64a19 !important; /* 주황색으로 강조 */
+}
+
+/* Swiper 페이지네이션(점) 색상 조정 */
+.swiper-pagination-bullet-active {
+    background: #e64a19 !important; /* 활성 점 색상 변경 */
+}
+
+/* Install 버튼 스타일 (필요하다면) */
+#installButton {
+    background-color: #4CAF50; /* 녹색 */
+    color: white;
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-    margin-top: 10px; /* 헤더 내에서 위치 조정 */
-    transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
 #installButton:hover {
-    background-color: #0056b3;
+    background-color: #45a049;
 }
 
-/* 모든 링크의 탭 하이라이트 제거 (모바일에서) */
-a {
-    -webkit-tap-highlight-color: transparent;
-}
+/* 모바일 반응형 디자인 */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
 
-/* 긴급 연락처 텍스트와 링크 색상 일관성 유지 (선택 사항) */
-#emergency-contacts p a {
-    color: inherit; /* 부모 요소의 글자색 상속 */
-    text-decoration: underline; /* 밑줄 추가로 링크임을 표시 */
-}
+    main {
+        padding: 15px;
+        margin: 10px auto;
+        border-radius: 0; /* 모바일에서는 둥근 모서리 제거 */
+        box-shadow: none; /* 모바일에서는 그림자 제거 */
+    }
 
-/* 특정 상황에서 연락처 링크의 색상을 더 강조하고 싶다면 */
-#emergency-contacts p a:hover {
-    color: #e64a19; /* 테마 색상으로 강조 */
-}
+    section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
 
-/* ... Swiper 관련 스타일 유지 ... */
+    section ul li {
+        padding: 10px;
+    }
+}

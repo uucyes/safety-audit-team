@@ -1,51 +1,37 @@
-// Service Worker 등록
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-            .then(registration => {
-                console.log('Service Worker 등록 성공:', registration.scope);
-            })
-            .catch(error => {
-                console.error('Service Worker 등록 실패:', error);
-            });
+// PWA 설치 버튼 로직
+let deferredPrompt;
+const installButton = document.getElementById('installButton');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent the mini-infobar from appearing on mobile
+    e.preventDefault();
+    // Stash the event so it can be triggered later.
+    deferredPrompt = e;
+    // Update UI notify the user they can install the PWA
+    if (installButton) {
+        installButton.style.display = 'block';
+    }
+});
+
+if (installButton) {
+    installButton.addEventListener('click', async () => {
+        // Hide the app provided install promotion
+        installButton.style.display = 'none';
+        // Show the install prompt
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            const { outcome } = await deferredPrompt.userChoice;
+            // Optionally, send analytics event with outcome of user choice
+            console.log(`User response to the install prompt: ${outcome}`);
+            // We've used the prompt, and can't use it again, clear it.
+            deferredPrompt = null;
+        }
     });
 }
 
-// 앱이 로드될 때 실행될 코드
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('재난 매뉴얼 앱이 성공적으로 로드되었습니다!');
-
-    // --- PWA 설치 버튼 로직 ---
-    let installButton = document.getElementById('installButton');
-    let deferredPrompt;
-
-    window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        installButton.style.display = 'block';
-        console.log('PWA 설치 프롬프트 준비됨.');
-    });
-
-    installButton.addEventListener('click', () => { // (e) 인자 제거
-        installButton.style.display = 'none';
-        if (deferredPrompt) { // deferredPrompt가 존재하는지 확인
-            deferredPrompt.prompt();
-            deferredPrompt.userChoice.then((choiceResult) => {
-                if (choiceResult.outcome === 'accepted') {
-                    console.log('PWA 설치 성공: 사용자가 앱을 설치했습니다.');
-                } else {
-                    console.log('PWA 설치 취소: 사용자가 설치를 거부했습니다.');
-                }
-                deferredPrompt = null;
-            });
-        }
-    });
-
-    window.addEventListener('appinstalled', () => {
-        console.log('PWA가 성공적으로 설치되었습니다!');
-        installButton.style.display = 'none';
-    });
-
-    // 참고: Swiper 초기화 코드는 각 Swiper를 사용하는 HTML 파일 내부에 두는 것이 좋습니다.
-    // 이 script.js에서는 전역적인 Swiper 초기화 로직을 제거합니다.
-});
+// ✅ Zooming.js 초기화는 이제 각 가이드 페이지의 스크립트에 포함되므로,
+//    이곳 script.js에서는 주석 처리하거나 제거할 수 있습니다.
+// document.addEventListener('DOMContentLoaded', () => {
+//     new Zooming().listen('[data-action="zoom"]');
+// });

@@ -3,109 +3,116 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 기본 폰트 설정 */
+    font-family: 'Noto Sans KR', sans-serif; /* ✅ 가독성 좋은 한국어 폰트 추가 (Google Fonts 등에서 로드 필요) */
+    -webkit-tap-highlight-color: transparent; /* ✅ 모바일 터치 시 파란색 하이라이트 제거 */
 }
 
+
 body {
-    background-color: #f0f2f5; /* 밝은 회색 배경 */
-    color: #333; /* 기본 텍스트 색상 */
+    background-color: #f0f2f5;
+    color: #333;
     line-height: 1.6;
-    display: flex; /* Flexbox 사용하여 Footer를 아래로 내림 */
+    display: flex;
     flex-direction: column;
-    min-height: 100vh; /* 최소 화면 높이 */
+    min-height: 100vh;
+    font-size: 16px; /* ✅ 기본 폰트 크기 모바일에서 읽기 좋게 설정 */
 }
 
 /* 헤더 스타일 */
 header {
-    background-color: #e64a19; /* 주황색 계열 (테마 색상과 유사) */
+    background-color: #e64a19;
     color: white;
-    padding: 1rem 0;
+    padding: 1rem 15px; /* ✅ 좌우 패딩 추가 */
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    font-size: 2.2rem;
+    font-size: 2rem; /* ✅ 모바일에서 적절한 크기 */
     margin-bottom: 0.5rem;
 }
 
 header h1 a {
     color: white;
-    text-decoration: none; /* 링크 밑줄 제거 */
+    text-decoration: none;
 }
 
 /* 메인 콘텐츠 영역 */
 main {
-    flex-grow: 1; /* 남은 공간을 차지하여 푸터를 아래로 밀어냄 */
-    padding: 20px;
-    max-width: 800px; /* 콘텐츠 최대 너비 제한 */
-    margin: 20px auto; /* 중앙 정렬 및 위아래 여백 */
-    background-color: #fff; /* 흰색 배경 */
-    border-radius: 8px; /* 모서리 둥글게 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
+    flex-grow: 1;
+    padding: 15px; /* ✅ 모바일에서 여백 조정 */
+    max-width: 100%; /* ✅ 모바일에서는 100% 사용, 데스크탑에서만 max-width 적용 */
+    margin: 10px auto; /* ✅ 위아래 여백 줄임 */
+    background-color: #fff;
+    border-radius: 0; /* ✅ 모바일에서는 모서리 둥글기 제거 (전체 화면처럼) */
+    box-shadow: none; /* ✅ 모바일에서는 그림자 제거 */
 }
 
 /* 각 섹션 스타일 */
 section {
-    padding: 20px 0;
-    border-bottom: 1px solid #eee; /* 섹션 구분선 */
-    margin-bottom: 20px;
+    padding: 15px 0; /* ✅ 섹션 내부 여백 조정 */
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px; /* ✅ 섹션 하단 여백 조정 */
 }
 
 section:last-child {
-    border-bottom: none; /* 마지막 섹션은 구분선 없음 */
+    border-bottom: none;
     margin-bottom: 0;
 }
 
 section h2 {
-    color: #d84315; /* 주황색 계열 제목 */
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #ffccbc; /* 제목 아래 강조선 */
-    padding-bottom: 10px;
+    color: #d84315;
+    font-size: 1.6rem; /* ✅ 모바일에서 제목 크기 조정 */
+    margin-bottom: 12px;
+    border-bottom: 2px solid #ffccbc;
+    padding-bottom: 8px;
 }
 
 /* 목록 스타일 (재난 유형, 비상 물품) */
 section ul {
-    list-style: none; /* 기본 목록 마커 제거 */
+    list-style: none;
     padding-left: 0;
 }
 
 section ul li {
-    background-color: #fdfdfd; /* 리스트 항목 배경색 */
-    margin-bottom: 10px;
-    padding: 12px 15px;
-    border-left: 5px solid #ff7043; /* 왼쪽 강조선 */
+    background-color: #fdfdfd;
+    margin-bottom: 8px; /* ✅ 리스트 항목 간 여백 줄임 */
+    padding: 12px 15px; /* ✅ 터치 영역 확보를 위한 충분한 패딩 */
+    border-left: 5px solid #ff7043;
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* 호버 효과 */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 section ul li:hover {
-    transform: translateY(-2px); /* 살짝 위로 */
+    transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 section ul li a {
     text-decoration: none;
-    color: #3f51b5; /* 파란색 계열 링크 */
+    color: #3f51b5;
     font-weight: bold;
-    display: block; /* 전체 영역 클릭 가능 */
-    padding: 0; /* 내부 여백 제거 */
+    display: block;
+    padding: 0;
 }
 
 section ul li a:hover {
-    color: #002884; /* 호버 시 더 진한 파란색 */
+    color: #002884;
 }
 
 /* 긴급 연락처 스타일 */
-.contact-info {
+#emergency-contacts p {
+    font-size: 1.1rem; /* ✅ 연락처 텍스트 크기 조정 */
+}
+
+.contact-info { /* 이 클래스가 p 태그에 직접 적용되지 않고, p 태그 하위 a 태그에만 영향을 주므로 수정 */
     font-weight: bold;
-    color: #e64a19; /* 강조 색상 */
+    color: #e64a19;
 }
 
 .contact-info a {
-    color: #e64a19; /* 링크 색상도 강조 색상으로 */
+    color: #e64a19;
     text-decoration: none;
     font-weight: bold;
 }
@@ -116,73 +123,116 @@ section ul li a:hover {
 
 /* 푸터 스타일 */
 footer {
-    background-color: #333; /* 어두운 배경 */
+    background-color: #333;
     color: white;
     text-align: center;
     padding: 1rem 0;
-    margin-top: 20px; /* 위쪽 여백 */
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* 위쪽 그림자 */
+    margin-top: 15px; /* ✅ 여백 조정 */
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem; /* ✅ 푸터 폰트 크기 조정 */
 }
 
-/* Swiper 슬라이더 이미지 크기 조절 (earthquake.html 등에서 사용) */
-.swiper-container, .swiper-wrapper, .swiper-slide {
-    width: 100%; /* 부모 너비에 맞춤 */
-    height: auto; /* 높이 자동 조절 */
+/* ✅✅✅ Swiper 슬라이더 및 이미지 스타일 (가이드 페이지용) ✅✅✅ */
+/* .swiper-container 대신 .swiper 클래스 사용 (Swiper 6+ 기준) */
+.swiper {
+    width: 100%; /* Swiper 컨테이너는 부모 너비의 100%를 차지 */
+    height: 300px; /* ✅ Swiper 높이를 고정하여 이미지 크기 제어. 모바일에서 너무 크지 않게 300px 추천. */
+    /* 필요에 따라 vh 단위 (예: height: 40vh;) 사용하여 화면 높이에 비례하도록 설정 가능 */
+    margin-bottom: 1.5rem;
+    overflow: hidden; /* 슬라이더 영역을 벗어나는 내용 숨기기 */
+}
+
+.swiper-wrapper {
+    /* Swiper가 flexbox를 알아서 처리하므로 대부분 건드릴 필요 없음 */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center; /* 이미지를 수평 중앙에 정렬 */
+    align-items: center;   /* 이미지를 수직 중앙에 정렬 */
+    /* Swiper-slide에 배경색이 있다면 이미지와 배경색 충돌 가능성 확인 */
 }
 
 .swiper-slide img {
-    width: 50%; /* 이미지 너비 100% */
-    height: auto; /* 이미지 높이 자동 조절 */
-    display: block; /* 이미지 아래 여백 제거 */
-    border-radius: 8px; /* 이미지 모서리 둥글게 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 이미지 그림자 */
+    width: 100%; /* 슬라이드 내부 이미지의 너비를 100%로 설정 */
+    height: 100%; /* 슬라이더 높이에 맞춰 100%로 설정 */
+    max-width: 100%; /* 이미지의 최대 너비를 슬라이드의 100%로 제한 */
+    max-height: 100%; /* 이미지의 최대 높이를 슬라이드의 100%로 제한 */
+    object-fit: contain; /* ✅ 이미지가 잘리지 않고 슬라이드 영역에 맞게 축소 (빈 공간 허용) */
+    /* object-fit: cover; 로 하면 이미지가 잘리더라도 영역을 꽉 채움 (선택) */
+    display: block;
+    margin: 0 auto; /* ✅ 이미지를 슬라이드 내부에서 수평 중앙에 정렬 */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Swiper 네비게이션 버튼 색상 조정 */
 .swiper-button-next, .swiper-button-prev {
     color: #e64a19 !important; /* 주황색으로 강조 */
+    font-size: 2.5rem; /* ✅ 모바일 터치 영역 고려하여 크기 키움 */
+    width: 40px; /* ✅ 터치 영역 명확화 */
+    height: 40px; /* ✅ 터치 영역 명확화 */
+    top: 50%; /* 중앙 정렬 */
+    transform: translateY(-50%);
 }
+.swiper-button-prev { left: 10px; } /* ✅ 좌우 여백 */
+.swiper-button-next { right: 10px; } /* ✅ 좌우 여백 */
+
 
 /* Swiper 페이지네이션(점) 색상 조정 */
 .swiper-pagination-bullet-active {
     background: #e64a19 !important; /* 활성 점 색상 변경 */
 }
 
-/* Install 버튼 스타일 (필요하다면) */
+/* ✅✅✅ 일반 이미지에 대한 스타일 (Swiper 밖의 모든 img 태그에 적용) ✅✅✅ */
+img {
+    max-width: 100%; /* 이미지가 부모 너비를 넘지 않도록 */
+    height: auto;    /* 비율 유지 */
+    display: block;  /* 블록 요소로 설정 */
+    margin: 0 auto;  /* ✅ 수평 중앙 정렬 */
+}
+
+/* Install 버튼 스타일 */
 #installButton {
-    background-color: #4CAF50; /* 녹색 */
+    background-color: #4CAF50;
     color: white;
-    padding: 10px 15px;
+    padding: 10px 20px; /* ✅ 터치 영역 확장 */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1rem;
-    margin-top: 10px;
+    font-size: 1.1rem; /* ✅ 폰트 크기 키움 */
+    margin-top: 15px; /* ✅ 여백 조정 */
+    display: block; /* ✅ 중앙 정렬을 위해 블록 요소로 */
+    margin-left: auto; /* ✅ 중앙 정렬 */
+    margin-right: auto; /* ✅ 중앙 정렬 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #installButton:hover {
     background-color: #45a049;
 }
 
-/* 모바일 반응형 디자인 */
-@media (max-width: 600px) {
+/* 🚨🚨🚨 모바일 전용 미디어 쿼리 (max-width: 600px)는 이제 대부분의 스타일이 이미 모바일에 최적화되어 있으므로, 
+   큰 변화가 없다면 불필요하거나, 매우 세밀한 조정이 필요한 경우에만 사용합니다. 
+   현재는 위에 직접 조정한 값들이 모바일에서 잘 작동하도록 했습니다. 🚨🚨🚨 */
+/* @media (max-width: 600px) {
     header h1 {
         font-size: 1.8rem;
     }
-
     main {
         padding: 15px;
         margin: 10px auto;
-        border-radius: 0; /* 모바일에서는 둥근 모서리 제거 */
-        box-shadow: none; /* 모바일에서는 그림자 제거 */
+        border-radius: 0;
+        box-shadow: none;
     }
-
     section h2 {
         font-size: 1.5rem;
         margin-bottom: 10px;
     }
-
     section ul li {
         padding: 10px;
     }
-}
+    .swiper {
+        height: 250px;
+    }
+} */
